@@ -14,6 +14,18 @@
 ### 原生装饰器
 1. 实现带参数的装饰器时，层层嵌套的函数代码特别难写、难读
 2. 因为函数和类方法的不同，为前者写的装饰器经常没法直接套用在后者上
+```
+def mydecorator(func):
+    # def wrapper(*args, **kwargs):
+    def wrapper():
+        startTime = time.time()
+        func()
+        # func(*args, **kwargs)
+        endTime = time.time()
+        print(f'用时 {endTime - startTime} !')
+    return wrapper
+    # 它的参数是一个函数，然后返回值也是一个函数。其中作为参数的这个函数func()就在返回函数wrapper()的内部执行。然后在函数func()前面加上@deco，func()函数就相当于被注入了计时功能，现在只要调用func()，它就已经变身为“新的功能更多”的函数了。
+```
 
 ### wrapt库实现装饰器
 - wrapped：被装饰的函数或类方法
