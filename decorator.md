@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
 简单的装饰器，计算函数所用时间，被装饰函数无参数
 
-```
+```pyhton
 import time
 
 def mydecorator(myfunc):  # 装饰器的参数是函数
@@ -70,7 +70,7 @@ myfunc()
 简单的装饰器，计算函数所用时间，被装饰函数有参数  
 可变参数*args和关键字参数**kwargs，有了这两个参数，装饰器就可以用于任意目标函数了, 不管你的函数是0个参数还是多个参数
 
-```
+```python
 import time
 
 def mydecorator(myfunc):  # 装饰器的参数是函数
@@ -89,7 +89,7 @@ myfunc('Python')
 ```
 
 ### 装饰器带参数
-```
+```python
 import time
 
 def mydecorator(arg):  # 接收装饰器的参数
@@ -113,7 +113,7 @@ myfunc('Python')
 ### 装饰器引起的问题
 你写了一个装饰器作用在某个函数上，但是这个函数的重要的元信息比如名字、文档字符串、注解和参数签名都丢失了。  
 解决方法：任何时候你定义装饰器的时候，都应该使用 functools 库中的 @wraps 装饰器来注解底层包装函数
-```
+```python
 from functools import wraps
 import time
 
@@ -140,7 +140,7 @@ print(myfunc.__doc__)
 
 
 ### 基于类的装饰器
-```
+```python
 from functools import wraps
 import time
 
